@@ -1,0 +1,33 @@
+name: Documentation
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed  # Déclenchement lorsque la pull request est fermée
+
+jobs:
+  generate-docs:
+    name: Générer la documentation Javadoc
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'corretto'
+          java-version: '21'
+
+      - name: Build and generate Javadoc
+        run: mvn -B javadoc:javadoc
+
+      - name: Deploy Javadoc to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: target/site/apidocs  # Dossier où la documentation Javadoc est générée
+          branch: gh-pages  # Branche où la documentation sera déployée

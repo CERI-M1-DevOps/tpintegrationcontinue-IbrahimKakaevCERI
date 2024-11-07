@@ -1,18 +1,39 @@
 package liste;
 
 public class ListeSimple {
+    /**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     private long size;
     Noeud tete;
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public long getSize() {
         return size;
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null && courant.getElement() != element)
@@ -20,7 +41,12 @@ public class ListeSimple {
         if (courant != null)
             courant.setElement(nouvelleValeur);
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public void modifieTous(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null) {
@@ -29,7 +55,12 @@ public class ListeSimple {
             courant = courant.getSuivant();
         }
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public String toString() {
         StringBuilder sb = new StringBuilder("ListeSimple(");
         Noeud n = tete;
@@ -42,7 +73,12 @@ public class ListeSimple {
         sb.append(")");
         return sb.toString();
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {
@@ -62,11 +98,21 @@ public class ListeSimple {
             }
         }
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public void supprimeTous(int element) {
        tete = supprimeTousRecurs(element, tete);
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public Noeud supprimeTousRecurs(Object element, Noeud tete) {
         if (tete != null) {
             Noeud suiteListe = supprimeTousRecurs(element, tete.getSuivant());
@@ -79,7 +125,12 @@ public class ListeSimple {
             }
         } else return null;
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public Noeud getAvantDernier() {
         if (tete == null || tete.getSuivant() == null)
             return null;
@@ -93,7 +144,12 @@ public class ListeSimple {
             return courant;
         }
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public void inverser() {
         Noeud precedent = null;
         Noeud courant = tete;
@@ -105,7 +161,12 @@ public class ListeSimple {
         }
         tete = precedent;
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public Noeud getPrecedent(Noeud r) {
     // la liste n'est pas vide puisqu'on transmet un Node de la liste et le Node existe obligatoirement
         Noeud precedent = tete;
@@ -116,7 +177,12 @@ public class ListeSimple {
         }
         return precedent;
     }
-
+/**
+ * Description de la méthode
+ * @param var1 description du premier paramètre
+ * @param var2 description du second paramètre
+ * @return Description de la valeur retournée
+ */
     public void echanger(Noeud r1, Noeud r2) {
         if (r1 == r2)
             return;
