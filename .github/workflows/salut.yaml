@@ -1,5 +1,6 @@
 name: Bonjour
-on: [push] # Ce workflow se déclenche sur un push dans le dépôt
+on:
+  push: []
 jobs:
   Salutations: # Nom du job : Salutations
     name: Salutations
@@ -11,3 +12,4 @@ jobs:
         run: echo "Bonjour ${personneASaluer}"
       - name: L'heure de salutation # affiche l'heure de la précédente tâche
         run: echo "L'heure était $(date)."
+
