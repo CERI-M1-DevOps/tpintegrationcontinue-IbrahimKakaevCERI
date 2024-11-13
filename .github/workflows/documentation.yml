@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v2  # Configure JDK 21
         with:
           java-version: 21  # La version de Java
-          distribution: 'adoptopenjdk'  # Spécifie la distribution (par exemple, 'adoptopenjdk')
+          distribution: 'temurin'  # Utilisation de la distribution Temurin (Adoptium)
 
       - name: Generate Javadoc
         run: mvn -B javadoc:javadoc  # Génère la documentation Java avec Maven
