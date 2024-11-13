@@ -4,7 +4,10 @@ on:
   pull_request:
     types:
       - closed  # Le pipeline se déclenche lorsque la pull request est fermée
-
+permissions:
+  contents: write
+  pull-requests: write
+  
 jobs:
   deploy-documentation:
     if: github.event.pull_request.merged == true  # Vérifie que la PR a été fusionnée
