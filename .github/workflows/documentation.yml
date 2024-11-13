@@ -3,10 +3,11 @@ name: Documentation
 on:
   pull_request:
     types:
-      - closed  # Le pipeline se déclenche lorsque la pull request est fermée
+      - closed  # Le pipeline se déclenche lorsque la PR est fermée
+
 permissions:
-  contents: write
-  pull-requests: write
+  contents: write    # Autorisation pour écrire dans le dépôt
+  pull-requests: write  # Autorisation pour interagir avec les PR
 
 jobs:
   deploy-documentation:
@@ -16,19 +17,20 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2 
+        uses: actions/checkout@v2  # Clone le code
 
       - name: Set up JDK 11
-        uses: actions/setup-java@v2
+        uses: actions/setup-java@v2  # Configure JDK 11
         with:
-          java-version: 11
+          java-version: 11  # La version de Java
+          distribution: 'adoptopenjdk'  # Spécifie la distribution (par exemple, 'adoptopenjdk')
 
       - name: Generate Javadoc
         run: mvn -B javadoc:javadoc  # Génère la documentation Java avec Maven
 
       - name: Deploy documentation to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+        uses: peaceiris/actions-gh-pages@v4  # Déploie sur GitHub Pages
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}  # Utilise le jeton GitHub pour l'authentification
-          publish_dir: ./target/site/apidocs  # Répertoire généré contenant la documentation
-          publish_branch: gh-pages  # Crée la branche gh-pages si elle n'existe pas
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Jeton d'authentification GitHub
+          publish_dir: ./target/site/apidocs  # Dossier contenant la documentation générée
+          publish_branch: gh-pages  # Branche sur laquelle la documentation sera déployée
