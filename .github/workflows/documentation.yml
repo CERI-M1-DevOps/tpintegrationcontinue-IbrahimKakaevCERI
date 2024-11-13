@@ -32,5 +32,6 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4  # Déploie sur GitHub Pages
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Jeton d'authentification GitHub
-          publish_dir: ./target/site/apidocs  # Dossier contenant la documentation générée
+          publish_dir: ./target/site/apidocs  # Dossier contenant la documentation générée 
           publish_branch: gh-pages  # Branche sur laquelle la documentation sera déployée
+ 
