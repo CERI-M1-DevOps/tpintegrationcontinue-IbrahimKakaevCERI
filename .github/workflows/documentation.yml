@@ -3,11 +3,11 @@ name: Documentation
 on:
   pull_request:
     types:
-      - closed
+      - closed  # Le pipeline se déclenche lorsque la pull request est fermée
 
 jobs:
   deploy-documentation:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true  # Vérifie que la PR a été fusionnée
 
     runs-on: ubuntu-latest
 
@@ -21,10 +21,11 @@ jobs:
           java-version: 11
 
       - name: Generate Javadoc
-        run: mvn -B javadoc:javadoc
+        run: mvn -B javadoc:javadoc  # Génère la documentation Java avec Maven
 
       - name: Deploy documentation to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/site/apidocs
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Utilise le jeton GitHub pour l'authentification
+          publish_dir: ./target/site/apidocs  # Répertoire généré contenant la documentation
+          publish_branch: gh-pages  # Crée la branche gh-pages si elle n'existe pas
