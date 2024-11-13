@@ -23,7 +23,7 @@ jobs:
         uses: actions/setup-java@v2  # Configure JDK 11
         with:
           java-version: 11  # La version de Java
-          distribution: 'adoptopenjdk'  # Spécifie la distribution (par exemple, 'adoptopenjdk')
+          distribution: 'temurin'  # Spécifie la distribution valide
 
       - name: Generate Javadoc
         run: mvn -B javadoc:javadoc  # Génère la documentation Java avec Maven
@@ -34,3 +34,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}  # Jeton d'authentification GitHub
           publish_dir: ./target/site/apidocs  # Dossier contenant la documentation générée
           publish_branch: gh-pages  # Branche sur laquelle la documentation sera déployée
+
