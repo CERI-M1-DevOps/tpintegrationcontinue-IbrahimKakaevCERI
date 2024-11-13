@@ -15,7 +15,7 @@ jobs:
 
       # Étape pour mettre en cache les dépendances Maven
       - name: Mettre en cache les dépendances Maven
-        uses: actions/cache@v3
+        uses: actions/cache@v1
         with:
           path: ~/.m2/repository  # Dossier de cache Maven local
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}  # Clé de cache basée sur le hash de pom.xml
@@ -24,7 +24,7 @@ jobs:
 
       # Étape pour mettre en cache les paquets SonarQube
       - name: Mettre en cache les paquets SonarQube
-        uses: actions/cache@v3
+        uses: actions/cache@v1
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
