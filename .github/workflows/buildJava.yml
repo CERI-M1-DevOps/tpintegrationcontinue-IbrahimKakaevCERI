@@ -13,20 +13,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Étape pour mettre en cache les dépendances Maven
       - name: Cache Maven dependencies
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
-          path: ~/.m2/repository  # Dossier de cache Maven local
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}  # Clé de cache basée sur le hash de pom.xml
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
-            ${{ runner.os }}-maven-  # Clé de secours en cas de cache partiel
+            ${{ runner.os }}-maven-
 
-      # Étape pour mettre en cache les dépendances SonarQube
       - name: Cache SonarQube packages
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
-          path: ~/.sonar/cache  # Chemin où SonarQube stocke ses packages
+          path: ~/.sonar/cache
           key: ${{ runner.os }}-sonarqube-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-sonarqube-
