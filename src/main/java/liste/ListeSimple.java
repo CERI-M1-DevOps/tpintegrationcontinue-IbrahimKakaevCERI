@@ -4,31 +4,31 @@ public class ListeSimple {
     private long size;
     Noeud tete;
 
-/**
- * Returns the number of elements in the list.
- *
- * @return the size of the list
- */
+    /**
+     * Retourne le nombre d'éléments dans la liste.
+     *
+     * @return la taille de la liste
+     */
     public long getSize() {
         return size;
     }
 
-/**
- * Adds a new element to the beginning of the list.
- *
- * @param element the element to be added to the list
- */
+    /**
+     * Ajoute un nouvel élément au début de la liste.
+     *
+     * @param element l'élément à ajouter à la liste
+     */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
     /**
-     * Modifie la valeur du premier l  ment de la liste qui  gal   l'objet
+     * Modifie la valeur du premier élément de la liste qui est égal à l'objet
      * <code>element</code> par <code>nouvelleValeur</code>.
      *
-     * @param element l'objet   modifier
-     * @param nouvelleValeur la nouvelle valeur   affecter   l'objet
+     * @param element l'objet à modifier
+     * @param nouvelleValeur la nouvelle valeur à affecter à l'objet
      */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
@@ -41,11 +41,11 @@ public class ListeSimple {
     }
 
     /**
-     * Modifie la valeur de tous les l  ments de la liste qui sont   gaux   l'objet
+     * Modifie la valeur de tous les éléments de la liste qui sont égaux à l'objet
      * <code>element</code> par <code>nouvelleValeur</code>.
      *
-     * @param element l'objet   modifier
-     * @param nouvelleValeur la nouvelle valeur   affecter   l'objet
+     * @param element l'objet à modifier
+     * @param nouvelleValeur la nouvelle valeur à affecter à l'objet
      */
     public void modifieTous(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
@@ -58,12 +58,12 @@ public class ListeSimple {
     }
 
     /**
-     * Retourne une repr sentation textuelle de la liste.
-     * Chaque l ment de la liste est repr sent  par un objet Noeud
-     * qui est converti en une cha ne de caract res gr ce   sa
-     * m thode toString().
+     * Retourne une représentation textuelle de la liste.
+     * Chaque élément de la liste est représenté par un objet Noeud
+     * qui est converti en une chaîne de caractères grâce à sa
+     * méthode toString().
      *
-     * @return la repr sentation textuelle de la liste
+     * @return la représentation textuelle de la liste
      */
     public String toString() {
         StringBuilder sb = new StringBuilder("ListeSimple(");
@@ -80,13 +80,13 @@ public class ListeSimple {
     }
 
     /**
-     * Supprime le premier l  ment de la liste qui  gal  l'objet
-     * <code>element</code>. Si l' l ment est trouv   la t te de la liste,
-     * la t te est mise   jour pour pointer sur le suivant. Sinon, la liste
-     * est parcourue jusqu'   ce que l' l ment soit trouv  et supprim .
-     * R duit la taille de la liste de 1 si l' l ment est supprim .
+     * Supprime le premier élément de la liste qui est égal à l'objet
+     * <code>element</code>. Si l'élément est trouvé à la tête de la liste,
+     * la tête est mise à jour pour pointer sur le suivant. Sinon, la liste
+     * est parcourue jusqu'à ce que l'élément soit trouvé et supprimé.
+     * Réduit la taille de la liste de 1 si l'élément est supprimé.
      *
-     * @param element l'objet   supprimer de la liste
+     * @param element l'objet à supprimer de la liste
      */
     public void supprimePremier(Object element) {
         if (tete != null) {
@@ -109,29 +109,29 @@ public class ListeSimple {
     }
 
     /**
-     * Supprime tous les l  ments de la liste qui sont   gaux   l'objet
-     * <code>element</code>. La liste est parcourue r cursive et chaque
-     * l  ment   gal   l'objet est supprim , en mettant   jour la t te
-     * de la liste ou en d calant le lien entre deux l  ments.
-     * La taille de la liste est mise   jour en cons quence.
+     * Supprime tous les éléments de la liste qui sont égaux à l'objet
+     * <code>element</code>. La liste est parcourue récursivement et chaque
+     * élément égal à l'objet est supprimé, en mettant à jour la tête
+     * de la liste ou en décalant le lien entre deux éléments.
+     * La taille de la liste est mise à jour en conséquence.
      *
-     * @param element l'objet   supprimer de la liste
+     * @param element l'objet à supprimer de la liste
      */
     public void supprimeTous(Object element) {
         tete = supprimeTousRecurs(element, tete);
     }
 
     /**
-     * M thode r cursive qui supprime tous les l  ments de la liste qui sont
-     *   gaux   l'objet <code>element</code>. Les l  ments   supprimer
-     * sont d tach s de la liste en mettant   jour les liens entre les
-     * l  ments, ou en mettant   jour la t te de la liste si l' l ment   supprimer
-     * est en t te de liste. La taille de la liste est mise   jour en
-     * cons quence.
+     * Méthode récursive qui supprime tous les éléments de la liste qui sont
+     * égaux à l'objet <code>element</code>. Les éléments à supprimer
+     * sont détachés de la liste en mettant à jour les liens entre les
+     * éléments, ou en mettant à jour la tête de la liste si l'élément à supprimer
+     * est en tête de liste. La taille de la liste est mise à jour en
+     * conséquence.
      *
-     * @param element l'objet   supprimer de la liste
-     * @param tete la t te de la liste   parcourir
-     * @return la nouvelle t te de la liste apr s suppression
+     * @param element l'objet à supprimer de la liste
+     * @param tete la tête de la liste à parcourir
+     * @return la nouvelle tête de la liste après suppression
      */
     public Noeud supprimeTousRecurs(Object element, Noeud tete) {
         if (tete != null) {
@@ -149,10 +149,10 @@ public class ListeSimple {
     }
 
     /**
-     * Renvoie l'avant-dernier l  ment de la liste. Si la liste est vide
-     * ou ne contient qu'un l  ment, renvoie <code>null</code>.
+     * Renvoie l'avant-dernier élément de la liste. Si la liste est vide
+     * ou ne contient qu'un élément, renvoie <code>null</code>.
      *
-     * @return le dernier l  ment de la liste, ou <code>null</code>
+     * @return l'avant-dernier élément de la liste, ou <code>null</code>
      */
     public Noeud getAvantDernier() {
         if (tete == null || tete.getSuivant() == null) {
@@ -169,9 +169,9 @@ public class ListeSimple {
     }
 
     /**
-     * Inverse l'ordre des l  ments de la liste. La t te de la liste
-     * est mise   jour pour pointer sur le dernier l  ment de la liste
-     * apr s inversion.
+     * Inverse l'ordre des éléments de la liste. La tête de la liste
+     * est mise à jour pour pointer sur le dernier élément de la liste
+     * après inversion.
      */
     public void inverser() {
         Noeud precedent = null;
@@ -186,10 +186,11 @@ public class ListeSimple {
     }
 
     /**
-     * Renvoie le Noeud qui pr c de imm diatement le Noeud r dans la liste.
-     * Si r est le premier l  ment de la liste, renvoie null.
-     * @param r le Noeud dont on cherche le pr c dent
-     * @return le pr c dent de r, ou null
+     * Renvoie le Noeud qui précède immédiatement le Noeud donné dans la liste.
+     * Si r est le premier élément de la liste, renvoie null.
+     *
+     * @param r le Noeud dont on cherche le précédent
+     * @return le précédent de r, ou null
      */
     public Noeud getPrecedent(Noeud r) {
         Noeud precedent = tete;
@@ -202,11 +203,12 @@ public class ListeSimple {
     }
 
     /**
-     *  change deux Noeuds de la liste. Si les deux Noeuds sont diff rents, ils sont
-     *  chang s dans la liste. Si r1 est la t te de la liste, r2 prend sa place.
-     *  Si r2 est la t te de la liste, r1 prend sa place.
-     *  @param r1 le premier Noeud   changer
-     *  @param r2 le second Noeud   changer
+     * Échange deux Noeuds de la liste. Si les deux Noeuds sont différents, ils sont
+     * échangés dans la liste. Si r1 est la tête de la liste, r2 prend sa place.
+     * Si r2 est la tête de la liste, r1 prend sa place.
+     *
+     * @param r1 le premier Noeud à échanger
+     * @param r2 le second Noeud à échanger
      */
     public void echanger(Noeud r1, Noeud r2) {
         if (r1 == r2)
@@ -231,8 +233,3 @@ public class ListeSimple {
         r1.setSuivant(temp);
     }
 }
-
-
-
-
-
